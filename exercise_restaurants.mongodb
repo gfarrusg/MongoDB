@@ -1,0 +1,5 @@
+use('queries');
+db.exercise.find({});
+
+
+

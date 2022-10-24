@@ -1,5 +1,5 @@
 use('queries');
- db.exercise.find ({})
+//1 db.exercise.find ({})
 //2 db.exercise.find ({}, {_id: 1, name: 1, cuisine: 1, borough: 1, restaurant_id: 1})
 //3 db.exercise.find ({}, {_id: 0, name: 1, cuisine: 1, borough: 1, restaurant_id: 1})
 //4 db.exercise.find ({}, {_id: 0, name: 1, cuisine: 1, borough: 1, restaurant_id: 1, "address.zipcode": 1})
@@ -22,12 +22,12 @@ use('queries');
 //21 db.exercise.find ({$or: [{name: /^Wil/}, {"$and": [{"cuisine" : {$ne: "American "}}, {"cuisine": {$ne: "Chinees"}}]}]}, {"restaurant_id": 1,"name": 1,"borough": 1,"cuisine" : 1})
 //22 db.exercise.find ({"grades.date": ISODate("2014-08-11T00:00:00Z"), "grades.grade": "A", "grades.score": 11}, {"restaurant_id": 1,"name": 1,"grades": 1})
 //23 db.exercise.find ({"grades.1.date": ISODate("2014-08-11T00:00:00Z"), "grades.1.grade": "A", "grades.1.score": 9}, {"restaurant_id": 1,"name": 1,"grades": 1})
-//24 db.exercise.find  
-//25 db.exercise.find
-//26 db.exercise.find
-//27 db.exercise.find
-//28 db.exercise.find
-//29 db.exercise.find
-//30 db.exercise.find
-//31 db.exercise.find
-//32 db.exercise.find        
+//24 db.exercise.find ({ "address.coord.1": {$gt: 42, $lte: 52}}, {"restaurant_id": 1,"name": 1,"address": 1,"coord": 1})
+//25 db.exercise.find ().sort({"name": 1})
+//26 db.exercise.find ().sort({"name": -1})
+//27 db.exercise.find ({}, {_id: 0, cuisine: 1, borough: 1}).sort({cuisine: 1, borough: -1})
+//28 db.exercise.find ({"address.street": {$regex: /Street/}})
+//29 db.exercise.find ({"address.coord": {$type: "double"}}, {_id: 0, address: 1})
+//30 db.exercise.find ({"grades": {$elemMatch: {"score": {$mod: [7,0]}}}}, {_id: 0, restaurant_id: 1, name: 1, grades: 1})
+//31 db.exercise.find ({name: {$regex: /mon/}},{_id :0, name: 1, borough :1, "address.coord": 1, cuisine: 1})
+//32 db.exercise.find ({name: {$regex: /^Mad.*/}},{_id: 0, name: 1, borough: 1, "address.coord": 1, cuisine: 1})      
